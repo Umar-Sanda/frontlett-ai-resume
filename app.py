@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 import os
 import requests
 
-model_url = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
+model_url = "https://huggingface.co/Umar-Sanda/llama-2-7b-chat.Q4_K_M.gguf/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
 model_path = "llama-2-7b-chat.Q4_K_M.gguf"
 
 # Download the model if it doesn't exist
