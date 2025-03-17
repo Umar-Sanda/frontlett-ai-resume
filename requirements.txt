@@ -1,9 +1,5 @@
-ueststreamlit
+streamlit
 langchain
 langchain-community
 llama-cpp-python
-scipy
-numpy
-tqdm
-torch  
 requests
