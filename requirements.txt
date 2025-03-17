@@ -1,0 +1,8 @@
+streamlit
+langchain
+langchain-community
+llama-cpp-python
+scipy
+numpy
+tqdm
+torch  # Only needed if LlamaCpp requires it
