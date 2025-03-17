@@ -3,17 +3,20 @@ from langchain.chains import LLMChain
 from langchain_community.llms import LlamaCpp
 from langchain.prompts import PromptTemplate
 import os
+import requests
 
-# Path to local LLaMA model
-LLAMA_MODEL_PATH = "C:/Users/HomePC/Documents/modelstorage/llama-2-7b-chat.Q4_K_M.gguf"
+model_url = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
+model_path = "llama-2-7b-chat.Q4_K_M.gguf"
 
-# Initialize the LLaMA model
-llm = LlamaCpp(
-    model_path=LLAMA_MODEL_PATH,
-    temperature=0.7,
-    max_tokens=2048,  # Increased token limit
-    verbose=True  # Log model output for debugging
-)
+# Download the model if it doesn't exist
+if not os.path.exists(model_path):
+    with open(model_path, "wb") as f:
+        response = requests.get(model_url, stream=True)
+        for chunk in response.iter_content(chunk_size=8192):
+            f.write(chunk)
+
+# Load the model
+llm = LlamaCpp(model_path=model_path, temperature=0.7, max_tokens=2048)
 
 # Function to test model output
 def test_model():
